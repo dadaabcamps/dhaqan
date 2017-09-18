@@ -15,6 +15,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="186dp"
         android:background="@android:color/holo_purple"
+        android:onClick="openCreateActivity"
         android:text="Create Story"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
