@@ -5,20 +5,24 @@ package com.example.ifoict.dhaqan;
  */
 
 public class Article {
-    String title, author, content, category;
+    String id, title, author, content, category;
 
     public Article(){
 
     }
 
-    public Article(String title, String author, String content, String category){
+    public Article(String id, String title, String author, String content, String category){
 
+        this.id = id;
         this.title = title;
         this.author = author;
         this.content = content;
         this.category = category;
     }
 
+    public String getId(){
+        return id;
+    }
     public String getTitle(){
         return title;
     }

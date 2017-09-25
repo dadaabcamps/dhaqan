@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dhaqan</string>
+    <string name="app_name">Dhaqan Admin</string>
     <string-array name="categories">
                
         <item>Religious</item>

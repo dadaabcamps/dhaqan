@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "668838851245-cv1piqa0idfaivih4k41efvhb018ddfs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ifoict.dhaqan",
+            "certificate_hash": "4adb9ce8a3a6b7142000f429c717c1b49891b421"
+          }
+        },
+        {
           "client_id": "668838851245-4d2pn2ehid551rmfq4koe3btll59hp27.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

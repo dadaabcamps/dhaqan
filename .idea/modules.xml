@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Dhaqan.iml" filepath="$PROJECT_DIR$/Dhaqan.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dhaqan.iml" filepath="$PROJECT_DIR$/dhaqan.iml" />
     </modules>
   </component>
 </project>

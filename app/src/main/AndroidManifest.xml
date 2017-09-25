@@ -20,10 +20,14 @@
         </activity>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".CreateActivity" />
+        <activity
+            android:name=".CreateActivity"
+            android:parentActivityName=".ProfileActivity" />
         <activity
             android:name=".DetailActivity"
-            android:theme="@style/CustomActionBar"></activity>
+            android:parentActivityName=".ProfileActivity"
+            android:theme="@style/CustomActionBar" />
+        <activity android:name=".EditActivity"></activity>
     </application>
 
 </manifest>

@@ -9,6 +9,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -18,6 +23,9 @@ public class DetailActivity extends AppCompatActivity {
     String recievedTittle;
     String recievedContent;
     String recievedAuthor;
+    String receivedID;
+    FirebaseDatabase db;
+    DatabaseReference dbArticle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,8 @@ public class DetailActivity extends AppCompatActivity {
 // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
 
+        db = FirebaseDatabase.getInstance();
+        dbArticle = db.getReference("Articles");
 
 
 
@@ -43,8 +53,9 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent i= getIntent();
         recievedTittle = i.getStringExtra("titleKey");
-        recievedContent= i.getStringExtra("contentKey");
-        recievedAuthor=i.getStringExtra("authorKey");
+        recievedContent = i.getStringExtra("contentKey");
+        recievedAuthor = i.getStringExtra("authorKey");
+        receivedID = i.getStringExtra("idKey");
 
         textViewTittle.setText(recievedTittle);
         textViewContent.setText(recievedContent);
@@ -77,16 +88,16 @@ public class DetailActivity extends AppCompatActivity {
 
             case R.id.action_delete:
 
-//                try{
-//                    dbAgency.child(id).removeValue();
+                try{
+                    dbArticle.child(receivedID).removeValue();
 //                    progress.dismiss();
-//                    Toast.makeText(ViewAgencyActivity.this, "Agency deleted", Toast.LENGTH_SHORT).show();
-//                }
-//                catch (DatabaseException e){
-//                    Toast.makeText(ViewAgencyActivity.this, e+"", Toast.LENGTH_SHORT).show();
-//                }
-//                finish();
-//                startActivity(new Intent(ViewAgencyActivity.this, ListAgencyActivity.class));class
+                    Toast.makeText(DetailActivity.this, "Article deleted", Toast.LENGTH_SHORT).show();
+                }
+                catch (DatabaseException e){
+                    Toast.makeText(DetailActivity.this, e+"", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+                startActivity(new Intent(DetailActivity.this, ProfileActivity.class));
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
                 return true;
