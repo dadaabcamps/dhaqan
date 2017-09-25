@@ -1,5 +1,6 @@
 package com.example.ifoict.dhaqan;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -61,6 +62,15 @@ public class CreateActivity extends AppCompatActivity implements AdapterView.OnI
 
         dbRef.child(id).setValue(article);
         Toast.makeText(CreateActivity.this, "Article created", Toast.LENGTH_SHORT).show();
+
+        Intent i = new Intent(CreateActivity.this,DetailActivity.class);
+        i.putExtra("titleKey", title);
+        i.putExtra("contentKey", content);
+        i.putExtra("authorKey", author);
+        i.putExtra("idKey", id);
+        i.putExtra("categoryKey", category);
+        startActivity(i);
+
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {

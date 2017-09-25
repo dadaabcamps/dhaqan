@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Dhaqan</string>
     <string-array name="categories">
-        <item>Religious</item>
-        <item>Poem</item>
-        <item>Song</item>
-        <item>Proverb</item>
-    </string-array>
+               
+        <item>Religious</item>
+               
+        <item>Poem</item>
+               
+        <item>Song</item>
+               
+        <item>Proverb</item>
+           
+    </string-array>
 </resources>
