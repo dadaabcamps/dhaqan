@@ -15,12 +15,15 @@ import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static android.R.attr.id;
+import static android.R.attr.name;
+
 public class DetailActivity extends AppCompatActivity {
 
     TextView textViewTittle;
     TextView textViewContent;
     TextView  textViewAuthor;
-    String recievedTittle;
+    String recievedTittle, receivedCategory;
     String recievedContent;
     String recievedAuthor;
     String receivedID;
@@ -44,18 +47,17 @@ public class DetailActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         dbArticle = db.getReference("Articles");
 
-
-
         textViewTittle=(TextView) findViewById(R.id.textViewTitle);
         textViewContent=(TextView) findViewById(R.id.textViewContent);
         textViewAuthor=(TextView) findViewById(R.id.textViewAuthor);
-
 
         Intent i= getIntent();
         recievedTittle = i.getStringExtra("titleKey");
         recievedContent = i.getStringExtra("contentKey");
         recievedAuthor = i.getStringExtra("authorKey");
         receivedID = i.getStringExtra("idKey");
+        receivedCategory=i.getStringExtra("categoryKey");
+
 
         textViewTittle.setText(recievedTittle);
         textViewContent.setText(recievedContent);
@@ -75,14 +77,14 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_edit:
-//                Intent agencyIntent = new Intent(ViewAgencyActivity.this, EditAgencyActivity.class);
-//
-//                agencyIntent.putExtra("idKey", id);
-//                agencyIntent.putExtra("nameKey", name);
-//                agencyIntent.putExtra("codeKey", code);
-//                agencyIntent.putExtra("imageKey", imageUrl);
-//
-//                startActivity(agencyIntent);
+                Intent agencyIntent = new Intent(DetailActivity.this, EditActivity.class);
+
+                agencyIntent.putExtra("titleKey", recievedTittle);
+                agencyIntent.putExtra("authorKey", recievedAuthor);
+                agencyIntent.putExtra("contentKey", recievedContent);
+                agencyIntent.putExtra("categoryKey", receivedCategory);
+
+                startActivity(agencyIntent);
                 // User chose the "Settings" item, show the app settings UI...
                 return true;
 
