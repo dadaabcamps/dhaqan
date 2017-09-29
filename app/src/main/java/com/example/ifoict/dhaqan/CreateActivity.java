@@ -59,7 +59,7 @@ public class CreateActivity extends AppCompatActivity implements AdapterView.OnI
         Toast.makeText(CreateActivity.this, "Article created", Toast.LENGTH_SHORT).show();
 
         Intent i = new Intent(CreateActivity.this,ProfileActivity.class);
-       Intent i = new Intent(CreateActivity.this,DetailActivity.class);
+//       Intent i = new Intent(CreateActivity.this,DetailActivity.class);
 //        i.putExtra("titleKey", title);
 //        i.putExtra("contentKey", content);
 //        i.putExtra("authorKey", author);
