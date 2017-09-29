@@ -79,6 +79,7 @@ public class DetailActivity extends AppCompatActivity {
             case R.id.action_edit:
                 Intent agencyIntent = new Intent(DetailActivity.this, EditActivity.class);
 
+                agencyIntent.putExtra("idKey", receivedID);
                 agencyIntent.putExtra("titleKey", recievedTittle);
                 agencyIntent.putExtra("authorKey", recievedAuthor);
                 agencyIntent.putExtra("contentKey", recievedContent);

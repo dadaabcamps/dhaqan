@@ -23,12 +23,18 @@ public class ProfileActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseRecyclerAdapter<Article, ArticleViewHolder> firebasenewsRecycleAdapter;
     ProgressBar progressBarArticleList;
+    private static Boolean isVisited = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        if(!isVisited){
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+            isVisited = true;
+        }
 
         //Initialize Firebase DB
         db = FirebaseDatabase.getInstance().getReference();
@@ -38,7 +44,6 @@ public class ProfileActivity extends AppCompatActivity {
         rv = (RecyclerView) findViewById(R.id.recyclerViewArticleList);
         linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(false);
-
 
         progressBarArticleList = (ProgressBar) findViewById(R.id.progressBarArticleList);
         progressBarArticleList.setVisibility(View.VISIBLE);
